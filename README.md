@@ -13,3 +13,57 @@ learn boost
     + 如果编译提示找不到头文件则执行添加环境变量方法命令:
         + C_INCLUDE_PATH=$C_INCLUDE_PATH:/opt/homebrew/include
         + CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/opt/homebrew/include
+
+
+
+## code
+1. 测试boost安装是否成功
+2. lexical_cast数值转换
+    
+    Boost库中的lexical_cast为数值之间的转换提供了一个更好的方案, 可以忘掉std中诸多函数，直接使用`lexical_cast`, 如果转换发生了意外, `lexical_cast`会抛出一个`bad_lexical_cast`异常, 因此程序需要做`try-catch`
+    
+    优势:`#include<boost/lexical_cast.hpp>`中定义了此函数lexical_cast使用统一接口形式实现任意类型之间的转换，增强了易用性。
+3. format 字符串格式化
+
+4. string_algo 
+    
+    boost的string_algo库是一个非常全面的字符串算法库, 提供了大量字符串操作函数与算法(algorithm), 如大小写无关比较，修剪, 特定模式的子串查找等, 可以在不使用正则表达式的情况下处理大多数字符串相关问题。 需包含头文件`boost/agrithm/string.hpp`
+    string_algo库提供的算法分五大类:
+    + 大小写转换
+    + 判断式与分类
+    + 修剪
+    + 查找与替换
+    + 分割与合并
+
+    方法:
+    + 字符串判断式与分类:
+        + starts_with: 检测一个字符串是否是另一个的前缀
+        + ends_with: 检测一个字符串是否是另一个的后缀
+        + contains: 检测一个字符串是否被另一个包含
+        + equals: 检测两个字符串是否相等
+        + lexicographical_+compare: 根据字典序检测一个字符串是否小于另一个
+        + all: 检测一个字符串中的所有元素是否满足指定的判断式
+
+    上面方法都有一个i前缀的版本, 可以忽略大小写
+
+    + 字符判断:
+        + is_equal: 类似`equals`算法, 比较两个对象是否相等
+        + is_less: 比较两个对象是否具有小关系
+        + is_not_greater: 比较两个对象是否具有不大于关系
+        + is_space: 字符是否为空格
+        + is_alnum: 字符是否为字母和数字字符
+        + is_alpha: 字符是否为字母
+        + is_cntrl: 字符串是否为控制字符
+        + is_digit: 字符串是否为十进制数字
+        + is_lower: 字符是否为小写字符
+        + is_punct: 字符是否为标点符号字符
+        + is_upper: 字符是否为大写字符
+        + is_xdigit: 字符是否为十六进制数字
+        + is_anyof: 字符是否是参数字符序列中的任意字符
+
+    + 字符串修剪:
+        + trim:在原字符串上修改
+        + trim_copy: 不修改原字符串
+        + trim_if: 可以添加判断条件
+        + trim_copy_if
+    
