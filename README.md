@@ -17,15 +17,15 @@ learn boost
 
 
 ## code
-1. 测试boost安装是否成功
-2. lexical_cast数值转换
+1. 测试boost安装是否成功 (参考代码1)
+2. lexical_cast数值转换 (参考代码2)
     
     Boost库中的lexical_cast为数值之间的转换提供了一个更好的方案, 可以忘掉std中诸多函数，直接使用`lexical_cast`, 如果转换发生了意外, `lexical_cast`会抛出一个`bad_lexical_cast`异常, 因此程序需要做`try-catch`
     
     优势:`#include<boost/lexical_cast.hpp>`中定义了此函数lexical_cast使用统一接口形式实现任意类型之间的转换，增强了易用性。
-3. format 字符串格式化
+3. format 字符串格式化  (参考代码3)
 
-4. string_algo 
+4. string_algo  (参考代码4)
     
     boost的string_algo库是一个非常全面的字符串算法库, 提供了大量字符串操作函数与算法(algorithm), 如大小写无关比较，修剪, 特定模式的子串查找等, 可以在不使用正则表达式的情况下处理大多数字符串相关问题。 需包含头文件`boost/agrithm/string.hpp`
     string_algo库提供的算法分五大类:
@@ -85,6 +85,23 @@ learn boost
         + find_all 分割并存放到容器中，然后通过迭代方式读取
         + spilt 同上
         + join 合并
+
+5. BOOST_AUTO/BOOST_TYPEOF类型推导  (参考代码5)
+    + 头文件: `#include <boost/typeof/typeof.hpp>`
+    + BOOST_TYPEOF     
+        + 与decltype类似，使用一个表达式作为宏的参数，推导出表达式`Expr`的类型
+    + BOOST_AUTO
+        + 与auto类似, BOOST_AUTO推导表达式Expr类型, 然后用这个类型声明变量var, 并将表达式的结果赋值给var
+
+6. 分词处理库 `tokenizer`   (代码在工程6中)
+    
+    `tokenizer`库是一个专门用于分词(token)的字符串处理库，可以方便的把一个字符串分解成若干个单纯，它比`spilt`更强大
+    + 头文件: `#include <boost/tokenizer.hpp>`
+    + 四个分词对象:
+        + `char_delimiters_separator`: tokenizer默认使用的分词函数对象，使用标点符号分词；但已废弃
+        + `char_sperator`: 它支持一个字符集合作为分隔符，默认的行为与`char_delimiters_sperator`类似;
+        + `escaped_list_separator`： 用csv格式(逗号分隔)的分词;
+        + `offset_separator`: 使用偏移量来分词, 在分解文件格式的字符串时有用
 
 
     
