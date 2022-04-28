@@ -36,7 +36,7 @@ learn boost
     + 分割与合并
 
     方法:
-    + 字符串判断式与分类:
+    + 字符串判断式与分类(i前缀的版本, 可以忽略大小写):
         + starts_with: 检测一个字符串是否是另一个的前缀
         + ends_with: 检测一个字符串是否是另一个的后缀
         + contains: 检测一个字符串是否被另一个包含
@@ -44,7 +44,6 @@ learn boost
         + lexicographical_+compare: 根据字典序检测一个字符串是否小于另一个
         + all: 检测一个字符串中的所有元素是否满足指定的判断式
 
-    上面方法都有一个i前缀的版本, 可以忽略大小写
 
     + 字符判断:
         + is_equal: 类似`equals`算法, 比较两个对象是否相等
@@ -66,4 +65,26 @@ learn boost
         + trim_copy: 不修改原字符串
         + trim_if: 可以添加判断条件
         + trim_copy_if
+
+    + 字符串查找(带i前缀表示忽略大小写):
+        + find_first: 查找子串第一次在被查找串中出现的位置
+        + find_last: 查找子串最后一次在被查找串中的位置
+        + find_nth: 查找子串第n次出现在被查找串中的位置
+        + find_head: 返回字符串头部n个字符串的位置
+        + find_tail: 返回字符串尾部n个字符串的位置
+
+    + 字符串替换/删除(前四组每个都有前缀i, 后缀copy版本, 后两个只有后缀copy的版本)
+        + replace/erase_first: 替换/删除第一次出现在被查找串中的子串
+        + replace/erase_last: 替换/删除最后一次出现在被查找串中的子串
+        + replace/erase_nth: 替换删除第n次出现在被查找串中的子串
+        + replace/erase_all: 替换/删除所有的子串
+        + replace/erase_head: 替换/删除头部几个字符
+        + replace/erase_tail: 替换/删除尾部几个字符
+
+    + 字符串分割与合并
+        + find_all 分割并存放到容器中，然后通过迭代方式读取
+        + spilt 同上
+        + join 合并
+
+
     
